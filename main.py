@@ -3,17 +3,16 @@ def parse_input(user_input):
         cmd, *args = user_input.split()
         cmd = cmd.strip().lower()
         return cmd, *args
-    except Exception as e:
-        print("Exception: ", e)
+    except Exception:
         return {}
 
 def add_contact(args, contacts):
     try:
         name, phone = args
         contacts[name] = phone
-        return "Contact added."
+        return f"Contact {name} added."
     except Exception as e:
-        print("Exception: ", e)
+        return f"Exception: {e}" 
 
 def change_contact(args, contacts):
     try:
@@ -24,7 +23,7 @@ def change_contact(args, contacts):
         else:
             return f"Contact {name} not found!"
     except Exception as e:
-        print("Exception: ", e)
+        return f"Exception: {e}"
 
 def get_phone(args, contacts):
     try:
@@ -38,7 +37,7 @@ def get_phone(args, contacts):
         else:
                 return f"Contact not found!"
     except Exception as e:
-        print("Exception: ", e)
+        return f"Exception: {e}" 
 
 def main():
     contacts = {}
